@@ -1,0 +1,17 @@
+dft_dir_name = scf
+td_dir_name = tddft
+overlap_file_name = output_ovlap
+tddft_file_name = gauss_lrtddft.out
+
+nsteps = 9
+gauss_homo = 81
+gauss_emin = 40
+gauss_emax = 120
+num_exc = 6
+time_step = 0.25
+
+dft_ordering = yes
+td_ordering = yes
+same_sign = no
+use_threshold = no
+threshold = 0.05

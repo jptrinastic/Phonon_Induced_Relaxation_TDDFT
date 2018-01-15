@@ -1,0 +1,26 @@
+#!/bin/bash
+
+istep=1
+fstep=9
+k=1
+for ((i=$istep; i<=$fstep; i++))
+do
+j=$(($i+$k))
+
+#Copy compiled overlap code, input file, and job file into each folder
+cp ovlap_code scf$i
+cp input_ovlap scf$i
+cp job_ovlap scf$i
+
+cd scf$i
+
+#Copy current (t) and adjacent time-steps' (t + Delta_t) wave functions into same folder and rename
+cp porph_dft.wfx wfx1
+cp ../scf$j/porph_dft.wfx ./wfx2
+
+#Submit job to calculate Kohn-Sham orbital overlaps between adjacent time steps
+qsub job_ovlap
+
+cd ..
+
+done 

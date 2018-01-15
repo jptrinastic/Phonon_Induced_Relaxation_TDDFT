@@ -1,0 +1,20 @@
+#!/bin/bash
+
+istep=1
+fstep=10
+
+for ((i=$istep; i<=$fstep; i++))
+do
+
+mkdir scf$i/tddft
+
+cat head_lrtddft pos$i foot > scf$i/tddft/gauss_lrtddft.com
+
+cp job_lrtddft scf$i/tddft
+cd scf$i/tddft
+
+qsub job_lrtddft
+
+cd ../../
+
+done 

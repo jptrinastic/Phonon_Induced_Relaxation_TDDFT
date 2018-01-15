@@ -1,0 +1,22 @@
+#!/bin/bash -l
+#
+#PBS -N porph_md_lrtddft
+#PBS -o mpi.out
+#PBS -j oe
+#PBS -m a
+#PBS -M jptrinastic@phys.ufl.edu
+#PBS -q ccm_queue
+#PBS -l mppwidth=24
+#PBS -l walltime=2:00:00
+#PBS -V
+#
+cd $PBS_O_WORKDIR
+
+module load ccm
+setenv CRAY_ROOTFS DSL
+
+module load g09/d1
+
+ccmrun g09l < gauss_lrtddft.com > gauss_lrtddft.out
+
+echo "Done."

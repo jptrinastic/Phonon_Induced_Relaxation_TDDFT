@@ -1,0 +1,9 @@
+%nprocshared=24
+%mem=20000mb
+#P
+#IOP(99/18=100)
+# b3lyp/6-31g* NOSYMMETRY SCF=(Conver=7) INT=(Grid=ultrafine) SCRF=(Solvent=benzene) OUTPUT=wfx
+
+MD DFT
+
+0 1

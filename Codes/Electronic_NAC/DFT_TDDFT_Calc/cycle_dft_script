@@ -1,0 +1,19 @@
+#!/bin/bash
+
+istep=1
+fstep=10
+
+for ((i=$istep; i<=$fstep; i++))
+do
+mkdir scf$i
+
+cat head_dft pos$i foot > scf$i/gauss_dft.com
+
+cp job_dft scf$i
+cd scf$i
+
+qsub job_dft
+
+cd ..
+
+done 

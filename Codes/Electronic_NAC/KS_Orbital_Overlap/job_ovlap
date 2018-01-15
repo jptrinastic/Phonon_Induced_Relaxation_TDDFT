@@ -1,0 +1,18 @@
+#!/bin/bash -l
+#
+#PBS -N porph_ovlap
+#PBS -A mp261
+#PBS -o mpi.out
+#PBS -j oe
+#PBS -m abe
+#PBS -M jptrinastic@phys.ufl.edu
+#PBS -q regular
+#PBS -l mppwidth=4
+#PBS -l walltime=0:30:00
+#PBS -V
+#
+cd $PBS_O_WORKDIR
+
+aprun -n 4 ./ovlap_code
+
+echo "Done."
